@@ -2,10 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import registerServiceWorker from './registerServiceWorker';
 
-import Routes from './routes';
+import Template from './containers/Template';
+import { BrowserRouter } from 'react-router-dom'
 
 
 ReactDOM.render(
-    <Routes/>, 
+    <BrowserRouter>
+        <Template/> 
+    </BrowserRouter>,
     document.getElementById('root'));
 registerServiceWorker();
