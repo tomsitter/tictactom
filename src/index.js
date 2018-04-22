@@ -1,14 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import registerServiceWorker from './registerServiceWorker';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import registerServiceWorker from './registerServiceWorker'
+import {Router} from 'react-router-dom'
 
-import Template from './containers/Template';
-import { BrowserRouter } from 'react-router-dom'
-
+import App from './containers/App';
+import history from './utils/history'
 
 ReactDOM.render(
-    <BrowserRouter>
-        <Template/> 
-    </BrowserRouter>,
+    <Router history={history}>
+        <App/> 
+    </Router>,
     document.getElementById('root'));
 registerServiceWorker();

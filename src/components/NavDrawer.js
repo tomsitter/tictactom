@@ -3,9 +3,11 @@ import Drawer from 'material-ui/Drawer'
 import MenuItem from 'material-ui/MenuItem'
 import Divider from 'material-ui/Divider'
 import FloatingActionButton from 'material-ui/FloatingActionButton'
+import RaisedButton from 'material-ui/RaisedButton'
 import Menu from 'material-ui/svg-icons/navigation/menu'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 import { NavToggleButton } from '../styled/NavDrawer'
+import Auth from '../utils/auth.js'
 
 class NavDrawer extends Component {
     state = {
@@ -19,6 +21,11 @@ class NavDrawer extends Component {
                 open: !prevState.open
             }
         })
+    }
+
+    login = () => {
+        const auth = new Auth(); 
+        auth.testHistory();
     }
 
     render() {
@@ -45,7 +52,11 @@ class NavDrawer extends Component {
                             backgroundColor: 'salmon'
                         }}
                     >
-                    LoginContainer
+                        <RaisedButton
+                            onTouchTap={this.login}
+                        > 
+                            Login
+                        </RaisedButton>
                     </div>
                     <Divider/>
                     <Link
@@ -62,6 +73,7 @@ class NavDrawer extends Component {
                             primaryText={'Profile'}
                         />
                     </Link>
+
                 </Drawer>
 
             </div>
